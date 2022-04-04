@@ -8,67 +8,37 @@
     android:padding="16dp"
     tools:context=".camera">
 
-    <!--Linear Layout with horizontal orientation
-
-     and other properties-->
-
-    <LinearLayout
-
-        android:id="@+id/layout_button"
-
-        android:orientation="horizontal"
-
-        android:layout_alignParentTop="true"
-
-        android:weightSum="2"
-
+    <!--Image View for showing image chosen from gallery-->
+    <ImageView
+        android:id="@+id/imgView"
         android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
+    <!--Linear Layout with vertical orientation
+    and other properties-->
+    <LinearLayout
+        android:id="@+id/layout_button"
+        android:orientation="vertical"
+        android:layout_alignParentTop="true"
+        android:weightSum="2"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-
-
         <!--Button for choosing image from gallery-->
-
         <Button
-
             android:id="@+id/btnChoose"
-
-            android:text="Choose"
-
+            android:text="Choose Image from gallery"
             android:layout_weight="1"
-
-            android:layout_width="0dp"
-
-            android:layout_height="wrap_content" />
-
-
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"/>
 
         <!--Button for uploading image-->
-
         <Button
-
             android:id="@+id/btnUpload"
-
-            android:text="Upload"
-
+            android:text="Upload Image"
             android:layout_weight="1"
-
-            android:layout_width="0dp"
-
+            android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
     </LinearLayout>
-
-
-
-    <!--Image View for showing image chosen from gallery-->
-
-    <ImageView
-
-        android:id="@+id/imgView"
-
-        android:layout_width="match_parent"
-
-        android:layout_height="match_parent" />
 </RelativeLayout>
