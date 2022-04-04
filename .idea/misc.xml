@@ -3,6 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android_builds/Projects/Nagar-Seva/app/src/main/res/layout/activity_camera.xml" value="0.259375" />
+        <entry key="..\:/Android_builds/Projects/Nagar-Seva/app/src/main/res/layout/activity_complain.xml" value="0.259375" />
+        <entry key="..\:/Android_builds/Projects/Nagar-Seva/app/src/main/res/layout/activity_complaint_list.xml" value="0.259375" />
+        <entry key="..\:/Android_builds/Projects/Nagar-Seva/app/src/main/res/layout/activity_login.xml" value="0.259375" />
+        <entry key="..\:/Android_builds/Projects/Nagar-Seva/app/src/main/res/layout/activity_main.xml" value="0.259375" />
+        <entry key="..\:/Android_builds/Projects/Nagar-Seva/app/src/main/res/layout/main_item.xml" value="0.259375" />
         <entry key="..\:/Users/Asus/AndroidStudioProjects/GoogleApiImplimentation/app/src/main/res/layout/activity_camera.xml" value="0.1796875" />
         <entry key="..\:/Users/Asus/AndroidStudioProjects/GoogleApiImplimentation/app/src/main/res/layout/activity_complain.xml" value="0.1796875" />
         <entry key="..\:/Users/Asus/AndroidStudioProjects/GoogleApiImplimentation/app/src/main/res/layout/activity_complaint_list.xml" value="0.1796875" />

@@ -6,50 +6,39 @@
     android:layout_height="match_parent"
     android:background="@drawable/gops1"
     android:orientation="vertical"
-
     tools:context=".login">
-
-    <Button
-        android:id="@+id/signout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:background="#967D00"
-        android:text="Signout" />
 
     <TextView
         android:id="@+id/name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:textColor="#000000"
         android:textSize="30dp"
-        android:text="TextView" />
+        tools:text="UserName" />
 
     <TextView
         android:id="@+id/email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
         android:textSize="30dp"
-        android:textColor="#000000"
-        android:text="TextView" />
+        tools:text="Email" />
+    <Button
+        android:id="@+id/signout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Signout"
+        android:layout_gravity="end"/>
 
     <Button
         android:id="@+id/complaintList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:background="@color/colorAccent"
-        android:text="complaint  list" />
+        android:text="Complaint List" />
 
     <Button
         android:id="@+id/complain"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:background="#FF2268"
-        android:text="HAVE COMPLAIN?" />
+        android:text="Register a Complaint" />
 
 
 </LinearLayout>
