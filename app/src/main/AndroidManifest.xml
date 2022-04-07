@@ -15,6 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".For_Hotspot"
+            android:exported="false" />
+        <activity
             android:name=".ComplaintList"
             android:exported="false" />
         <activity

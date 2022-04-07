@@ -1,5 +1,7 @@
 package com.example.googleapiimplimentation;
 
+import android.graphics.Color;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,14 +34,27 @@ public class MainAdapter extends FirebaseRecyclerAdapter<MainModel,MainAdapter.m
         holder.name.setText(model.getName());
         //holder.mobile.setText(model.getMobile());
         holder.address.setText(model.getAddress());
-        holder.status.setText(model.getStatus());
+        String s1;
+       // holder.status.setText(model.getStatus());
+        s1 = model.getStatus();
+        Log.e("status-text", "Status: "+s1);
+        if(s1.equalsIgnoreCase("Unresolved"))
+        {
+            holder.status.setText(s1);
+            holder.status.setTextColor(Color.RED);
+        }
+        else
+        {
+            holder.status.setText(s1);
+            holder.status.setTextColor(Color.GREEN);
+        }
+
         holder.pincode.setText(model.getPincode());
         holder.date.setText(model.getDate());
 
         Glide.with(holder.image.getContext())
                 .load(model.getImage())
                 .placeholder(R.drawable.common_google_signin_btn_icon_dark)
-                .circleCrop()
                 .error(R.drawable.common_google_signin_btn_icon_dark_normal)
                 .into(holder.image);
 
@@ -59,7 +74,7 @@ public class MainAdapter extends FirebaseRecyclerAdapter<MainModel,MainAdapter.m
 
         public myViewHolder(@NonNull View itemView){
             super(itemView);
-            image = (ImageView)itemView.findViewById(R.id.image);
+            image = (ImageView) itemView.findViewById(R.id.image);
             name = (TextView)itemView.findViewById(R.id.name);
             address = (TextView)itemView.findViewById(R.id.address);
             //mobile = (TextView)itemView.findViewById(R.id.mobile);

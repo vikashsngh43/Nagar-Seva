@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -53,6 +54,18 @@ public class ComplaintList extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.search,menu);
         MenuItem item = menu.findItem(R.id.search);
+
+        getMenuInflater().inflate(R.menu.hotspot,menu);
+        MenuItem item2 = menu.findItem(R.id.hotspot);
+        item2.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                Intent intent = new Intent(ComplaintList.this, For_Hotspot.class);
+                startActivity(intent);
+                return false;
+            }
+        });
+
         SearchView searchView = (SearchView)item.getActionView();
         Toast.makeText(ComplaintList.this, "SEARCH BY NAME", Toast.LENGTH_SHORT).show();
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {

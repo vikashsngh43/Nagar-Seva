@@ -25,7 +25,7 @@ public class login extends AppCompatActivity {
     TextView name,email;
     Button complain;
     GoogleSignInClient mGoogleSignInClient;
-    Button complaintList;
+    Button complaintList/*,button*/;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +35,17 @@ public class login extends AppCompatActivity {
         email = findViewById(R.id.email);
         complaintList=findViewById(R.id.complaintList);
         complain=(Button) findViewById(R.id.complain);
+        //button=(Button)findViewById(R.id.button2);
 
+       /* button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Uri mapUri = Uri.parse("geo:0,0?q=" + Uri.encode("800002"));
+                Intent mapIntent = new Intent(Intent.ACTION_VIEW, mapUri);
+                mapIntent.setPackage("com.google.android.apps.maps");
+                startActivity(mapIntent);
+            }
+        });*/
 
         complain.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,6 +76,7 @@ public class login extends AppCompatActivity {
                 signOut();
             }
         });
+
         GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
         if (acct != null) {
             String personName = acct.getDisplayName();
