@@ -1,10 +1,14 @@
 package com.example.googleapiimplimentation;
 
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -57,7 +61,18 @@ public class MainAdapter extends FirebaseRecyclerAdapter<MainModel,MainAdapter.m
                 .placeholder(R.drawable.common_google_signin_btn_icon_dark)
                 .error(R.drawable.common_google_signin_btn_icon_dark_normal)
                 .into(holder.image);
-
+        Animation animation = AnimationUtils.loadAnimation(holder.itemView.getContext(), R.anim.scale_up);
+        holder.itemView.startAnimation(animation);
+        //opening full image
+        holder.image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Context context = v.getContext();
+                Intent intent= new Intent(context,Full_image.class);
+                intent.putExtra("image_url",model.getImage());
+                context.startActivity(intent);
+            }
+        });
     }
 
     @NonNull
@@ -65,6 +80,7 @@ public class MainAdapter extends FirebaseRecyclerAdapter<MainModel,MainAdapter.m
     public myViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.main_item,parent,false);
         return new myViewHolder(view);
+
     }
 
     class myViewHolder extends RecyclerView.ViewHolder{

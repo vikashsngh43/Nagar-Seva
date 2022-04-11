@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -20,8 +21,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class complain extends AppCompatActivity {
-     EditText employeeNameEdt, employeePhoneEdt, employeeAddressEdt,pin,dat;
-     TextView maps;
+     TextInputLayout employeeNameEdt, employeePhoneEdt, employeeAddressEdt,pin,dat;
+     Button maps;
      Button sendDatabtn;
     Button cam;
     TextView tv;
@@ -57,7 +58,7 @@ public class complain extends AppCompatActivity {
         pin=findViewById(R.id.pincode);
         dat=findViewById(R.id.date);
         cam = (Button) findViewById(R.id.cam);
-        maps = (TextView)findViewById(R.id.maps);
+        maps = (Button) findViewById(R.id.maps);
         tv=(TextView)findViewById(R.id.textView2);
         maps.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -104,15 +105,15 @@ public class complain extends AppCompatActivity {
 
                 firebaseDatabase = firebaseDatabase.getInstance();
                 databaseReference = firebaseDatabase.getReference("user_complaint");
-                String name = employeeNameEdt.getText().toString();
+                String name = employeeNameEdt.getEditText().getText().toString();
 
-                String phone = employeePhoneEdt.getText().toString();
+                String phone = employeePhoneEdt.getEditText().getText().toString();
 
-                String address = employeeAddressEdt.getText().toString();
+                String address = employeeAddressEdt.getEditText().getText().toString();
                 String Image = GlobalVariable.photoid;
                 String status=tv.getText().toString();
-                String pincode=pin.getText().toString();
-                String date=dat.getText().toString();
+                String pincode=pin.getEditText().getText().toString();
+                String date=dat.getEditText().getText().toString();
                 // getting text from our edittext fields.
                 if(TextUtils.isEmpty(name)){
                     employeeNameEdt.setError("NAME is required");
