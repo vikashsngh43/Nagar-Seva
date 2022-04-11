@@ -13,6 +13,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -20,7 +22,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class complain extends AppCompatActivity {
-     EditText employeeNameEdt, employeePhoneEdt, employeeAddressEdt,pin,dat;
+     EditText employeePhoneEdt, employeeAddressEdt,pin,dat;
+     TextInputLayout employeeNameEdt;
      TextView maps;
      Button sendDatabtn;
     Button cam;
@@ -104,7 +107,7 @@ public class complain extends AppCompatActivity {
 
                 firebaseDatabase = firebaseDatabase.getInstance();
                 databaseReference = firebaseDatabase.getReference("user_complaint");
-                String name = employeeNameEdt.getText().toString();
+                String name = employeeNameEdt.getEditText().getText().toString();
 
                 String phone = employeePhoneEdt.getText().toString();
 
