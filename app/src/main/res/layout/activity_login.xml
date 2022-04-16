@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gops1"
+    android:background="@drawable/log_in_bg"
     android:orientation="vertical"
     tools:context=".login">
 
@@ -13,32 +13,38 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="30dp"
-        tools:text="UserName" />
+        tools:text="UserName"
+        android:layout_marginTop="128dp"
+        android:padding="@dimen/fab_margin"/>
 
     <TextView
         android:id="@+id/email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="30dp"
-        tools:text="Email" />
+        tools:text="Email"
+        android:padding="@dimen/fab_margin"/>
     <Button
         android:id="@+id/signout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Signout"
-        android:layout_gravity="end"/>
+        android:layout_gravity="end"
+        android:layout_margin="@dimen/wide_margin"/>
 
     <Button
         android:id="@+id/complaintList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Complaint List" />
+        android:text="See the complaint list"
+        android:layout_margin="@dimen/wide_margin"/>
 
     <Button
         android:id="@+id/complain"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Register a Complaint" />
+        android:text="Register new a Complaint"
+        android:layout_margin="@dimen/wide_margin"/>
 
 
 
