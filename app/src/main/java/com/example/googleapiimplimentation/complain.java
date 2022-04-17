@@ -7,12 +7,14 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -46,6 +48,8 @@ public class complain extends AppCompatActivity {
 
     //user_complaint user_complaint;
 
+    BottomNavigationView bottomNavigationView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,6 +64,36 @@ public class complain extends AppCompatActivity {
         cam = (Button) findViewById(R.id.cam);
         maps = (Button) findViewById(R.id.maps);
         tv=(TextView)findViewById(R.id.textView2);
+
+        bottomNavigationView = findViewById(R.id.bottom_navigator);
+        bottomNavigationView.setSelectedItemId(R.id.add_complaint);
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId())
+                {
+                    case R.id.home:
+                        startActivity(new Intent(getApplicationContext(),login.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.fullComplainList:
+                        startActivity(new Intent(getApplicationContext(),ComplaintList.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.add_complaint:
+                        return true;
+                    case R.id.hotspot:
+                        startActivity(new Intent(getApplicationContext(),For_Hotspot.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.settings:
+                        return true;
+                }
+                return false;
+            }
+        });
+
         maps.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

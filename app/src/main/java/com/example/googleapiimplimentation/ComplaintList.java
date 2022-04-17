@@ -47,6 +47,16 @@ public class ComplaintList extends AppCompatActivity {
                         return true;
                     case R.id.fullComplainList:
                         return true;
+                    case R.id.add_complaint:
+                        startActivity(new Intent(getApplicationContext(),complain.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.hotspot:
+                        startActivity(new Intent(getApplicationContext(),For_Hotspot.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.settings:
+                        return true;
                 }
                 return false;
             }
