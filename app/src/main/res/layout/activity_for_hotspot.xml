@@ -4,81 +4,79 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".For_Hotspot">
+    android:layout_gravity="bottom|center_vertical"
+    tools:context=".For_Hotspot"
+    android:background="@drawable/bg_hotspot">
 
-
-    <TextView
-        android:id="@+id/pincode1"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:layout_margin="@dimen/wide_margin"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.121"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.14" />
+        android:background="@drawable/translucent_background">
+        <TextView
+            android:id="@+id/pincode1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            app:layout_constraintBottom_toTopOf="@id/pincode2"
+            app:layout_constraintEnd_toStartOf="@id/showhotspot1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/pincode2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="280dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.121"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pincode1"
-        app:layout_constraintVertical_bias="0.277" />
+        <TextView
+            android:id="@+id/pincode2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            app:layout_constraintBottom_toTopOf="@id/pincode3"
+            app:layout_constraintEnd_toStartOf="@id/showhotspot2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pincode1" />
 
-    <TextView
-        android:id="@+id/pincode3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="112dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.121"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pincode2"
-        app:layout_constraintVertical_bias="0.0" />
+        <TextView
+            android:id="@+id/pincode3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/showhotspot3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pincode2" />
 
-    <Button
-        android:id="@+id/showhotspot1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.615"
-        app:layout_constraintStart_toEndOf="@+id/pincode1"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.124" />
+        <Button
+            android:id="@+id/showhotspot1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Button"
+            app:layout_constraintBottom_toTopOf="@id/showhotspot2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/pincode1"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/showhotspot2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
-        android:text="Button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.648"
-        app:layout_constraintStart_toEndOf="@+id/pincode2"
-        app:layout_constraintTop_toBottomOf="@+id/showhotspot1"
-        app:layout_constraintVertical_bias="0.006" />
+        <Button
+            android:id="@+id/showhotspot2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Button"
+            app:layout_constraintBottom_toTopOf="@id/showhotspot3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/pincode2"
+            app:layout_constraintTop_toBottomOf="@+id/showhotspot1" />
 
-    <Button
-        android:id="@+id/showhotspot3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.648"
-        app:layout_constraintStart_toEndOf="@+id/pincode3"
-        app:layout_constraintTop_toBottomOf="@+id/showhotspot2"
-        app:layout_constraintVertical_bias="0.21" />
+        <Button
+            android:id="@+id/showhotspot3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Button"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/pincode3"
+            app:layout_constraintTop_toBottomOf="@+id/showhotspot2" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

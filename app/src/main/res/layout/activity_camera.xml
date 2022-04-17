@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    tools:context=".camera">
+    tools:context=".camera"
+    android:background="@drawable/bg_camera">
 
     <!--Image View for showing image chosen from gallery-->
     <ImageView

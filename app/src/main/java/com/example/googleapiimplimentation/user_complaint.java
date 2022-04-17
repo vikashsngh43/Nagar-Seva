@@ -7,11 +7,12 @@ public class user_complaint {
     String Image;
     String status;
     String pincode;
-  String date;
+    String username;
+    String date;
     public user_complaint() {
 
     }
-    public user_complaint(String name, String mobile, String address,String Image,String status,String pincode,String date) {
+    public user_complaint(String name, String mobile, String address,String Image,String status,String pincode,String date,String username) {
     this.name=name;
     this.mobile=mobile;
     this.address=address;
@@ -19,7 +20,16 @@ public class user_complaint {
      this.status=status;
      this.pincode=pincode;
      this.date=date;
+     this.username=username;
 
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getName() {

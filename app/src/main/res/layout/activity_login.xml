@@ -4,43 +4,64 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gops1"
+    android:background="@drawable/log_in_bg"
     android:orientation="vertical"
     tools:context=".login">
 
-    <TextView
-        android:id="@+id/name"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="446dp"
+        android:layout_marginLeft="@dimen/wide_margin"
+        android:layout_marginTop="1dp"
+        android:layout_marginRight="@dimen/wide_margin"
+        android:background="@drawable/translucent_background"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="30dp"
+            tools:text="UserName" />
+
+        <TextView
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/fab_margin"
+            android:textSize="30dp"
+            tools:text="Email" />
+
+        <Button
+            android:id="@+id/signout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_margin="@dimen/wide_margin"
+            android:text="Signout" />
+
+        <Button
+            android:id="@+id/complaintList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/wide_margin"
+            android:text="See the complaint list" />
+
+        <Button
+            android:id="@+id/complain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/wide_margin"
+            android:text="Register new a Complaint" />
+    </LinearLayout>
+    <com.google.android.material.bottomnavigation.BottomNavigationView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="30dp"
-        tools:text="UserName" />
-
-    <TextView
-        android:id="@+id/email"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="30dp"
-        tools:text="Email" />
-    <Button
-        android:id="@+id/signout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Signout"
-        android:layout_gravity="end"/>
-
-    <Button
-        android:id="@+id/complaintList"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Complaint List" />
-
-    <Button
-        android:id="@+id/complain"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Register a Complaint" />
-
-
+        android:id="@+id/bottom_navigator"
+        app:itemBackground="@color/colorPrimary"
+        app:itemTextColor="@drawable/selector"
+        app:itemIconTint="@drawable/selector"
+        app:menu="@menu/menu"/>
 
 
 </LinearLayout>
