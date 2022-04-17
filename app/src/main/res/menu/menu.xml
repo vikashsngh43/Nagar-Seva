@@ -3,12 +3,27 @@
 
     <item
         android:id="@+id/fullComplainList"
-        android:title="ComplaiList"
+        android:title="Complain List"
         android:icon="@drawable/ic_baseline_featured_play_list_24"/>
+    <item
+        android:id="@+id/hotspot"
+        android:title="Hotspots"
+        android:icon="@drawable/ic_round_track_changes_24"/>
+
+    <item
+
+        android:id="@+id/add_complaint"
+        android:icon="@drawable/ic_baseline_add_24"
+        android:title="New Complain" />
+
 
     <item
         android:id="@+id/home"
-        android:title="Home"
-        android:icon="@drawable/ic_baseline_home_24"/>
+        android:title="Profile"
+        android:icon="@drawable/ic_baseline_account_circle_24"/>
+    <item
+        android:id="@+id/settings"
+        android:title="Settings"
+        android:icon="@drawable/ic_baseline_settings_24"/>
 
 </menu>

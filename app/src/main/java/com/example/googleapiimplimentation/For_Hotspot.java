@@ -7,10 +7,12 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -26,6 +28,7 @@ public class For_Hotspot extends AppCompatActivity {
 
     TextView pin1,pin2,pin3;
     Button show1,show2,show3;
+    BottomNavigationView bottomNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +41,35 @@ public class For_Hotspot extends AppCompatActivity {
         show1 = (Button)findViewById(R.id.showhotspot1);
         show2 = (Button)findViewById(R.id.showhotspot2);
         show3 = (Button)findViewById(R.id.showhotspot3);
+
+        bottomNavigationView = findViewById(R.id.bottom_navigator);
+        bottomNavigationView.setSelectedItemId(R.id.hotspot);
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId())
+                {
+                    case R.id.home:
+                        startActivity(new Intent(getApplicationContext(),login.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.fullComplainList:
+                        startActivity(new Intent(getApplicationContext(),ComplaintList.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.add_complaint:
+                        startActivity(new Intent(getApplicationContext(),complain.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.hotspot:
+                        return true;
+                    case R.id.settings:
+                        return true;
+                }
+                return false;
+            }
+        });
 
         ArrayList<String> gops = new ArrayList<String>();
         String[] store = new String[3];

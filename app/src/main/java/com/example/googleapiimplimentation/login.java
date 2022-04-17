@@ -2,6 +2,8 @@ package com.example.googleapiimplimentation;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -14,6 +16,7 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -21,16 +24,23 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class login extends AppCompatActivity {
     Button signout;
 
     TextView name,email;
-    Button complain;
+    //Button complain;
     GoogleSignInClient mGoogleSignInClient;
-    Button complaintList/*,button*/;
+    //Button complaintList/*,button*/;
 
     BottomNavigationView bottomNavigationView;
+    RecyclerView recyclerView;
+    MainAdapter mainAdapter;
 
 
     @Override
@@ -39,8 +49,8 @@ public class login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         name = findViewById(R.id.name);
         email = findViewById(R.id.email);
-        complaintList=findViewById(R.id.complaintList);
-        complain=(Button) findViewById(R.id.complain);
+       // complaintList=findViewById(R.id.complaintList);
+        //complain=(Button) findViewById(R.id.complain);
         //button=(Button)findViewById(R.id.button2);
 
        /* button.setOnClickListener(new View.OnClickListener() {
@@ -66,12 +76,22 @@ public class login extends AppCompatActivity {
                         return true;
                     case R.id.home:
                         return true;
+                    case R.id.add_complaint:
+                        startActivity(new Intent(getApplicationContext(),complain.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.hotspot:
+                        startActivity(new Intent(getApplicationContext(),For_Hotspot.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.settings:
+                        return true;
                 }
                 return false;
             }
         });
 
-        complain.setOnClickListener(new View.OnClickListener() {
+       /* complain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -88,7 +108,7 @@ public class login extends AppCompatActivity {
                 Intent intent = new Intent(login.this, ComplaintList.class);
                 startActivity(intent);
             }
-        });
+        });*/
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
                 .build();
@@ -111,6 +131,27 @@ public class login extends AppCompatActivity {
             GlobalVariable.username = personEmail;
 
         }
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("user_complaint");
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for(DataSnapshot snapshot : dataSnapshot.getChildren()){
+                    String ma = snapshot.child("username").getValue().toString();
+                    if(ma.equals(GlobalVariable.username))
+                    {
+
+                        display();
+                    }
+                    else
+                        continue;
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
 
         private void signOut () {
@@ -126,4 +167,30 @@ public class login extends AppCompatActivity {
 
 
     }
+
+    private void display()
+    {
+        recyclerView = (RecyclerView) findViewById(R.id.recylerview1);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        FirebaseRecyclerOptions<MainModel> options =
+                new FirebaseRecyclerOptions.Builder<MainModel>()
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("user_complaint"), MainModel.class)
+                        .build();
+
+        mainAdapter = new MainAdapter(options);
+        recyclerView.setAdapter(mainAdapter);
+    }
+    @Override
+    protected void onStart() {
+        super.onStart();
+        mainAdapter.startListening();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        mainAdapter.stopListening();
+    }
+
 }
