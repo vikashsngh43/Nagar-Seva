@@ -114,6 +114,7 @@ public class complain extends AppCompatActivity {
                 String status=tv.getText().toString();
                 String pincode=pin.getEditText().getText().toString();
                 String date=dat.getEditText().getText().toString();
+                String username= GlobalVariable.username;
                 // getting text from our edittext fields.
                 if(TextUtils.isEmpty(name)){
                     employeeNameEdt.setError("NAME is required");
@@ -128,7 +129,7 @@ public class complain extends AppCompatActivity {
                     return;
                 }
 
-                user_complaint userhelper = new user_complaint(name, phone, address,Image,status,pincode,date);
+                user_complaint userhelper = new user_complaint(name, phone, address,Image,status,pincode,date,username);
                 databaseReference.child(phone).setValue(userhelper);
                 Toast.makeText(complain.this, "COMPLAIN REGISTERED", Toast.LENGTH_SHORT).show();
                 // below line is for checking weather the

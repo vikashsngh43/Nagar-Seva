@@ -6,9 +6,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,6 +20,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class login extends AppCompatActivity {
     Button signout;
@@ -26,6 +29,9 @@ public class login extends AppCompatActivity {
     Button complain;
     GoogleSignInClient mGoogleSignInClient;
     Button complaintList/*,button*/;
+
+    BottomNavigationView bottomNavigationView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +52,24 @@ public class login extends AppCompatActivity {
                 startActivity(mapIntent);
             }
         });*/
+        bottomNavigationView = findViewById(R.id.bottom_navigator);
+        bottomNavigationView.setSelectedItemId(R.id.home);
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId())
+                {
+                    case R.id.fullComplainList:
+                        startActivity(new Intent(getApplicationContext(),ComplaintList.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.home:
+                        return true;
+                }
+                return false;
+            }
+        });
 
         complain.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,6 +108,7 @@ public class login extends AppCompatActivity {
 
             name.setText(personName);
             email.setText(personEmail);
+            GlobalVariable.username = personEmail;
 
         }
     }
