@@ -1,174 +1,197 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="@drawable/bg_std"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".complain">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textView3"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraint"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Please enter the following details..."
-        app:layout_constraintBottom_toTopOf="@id/editTextTextPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/editTextTextPersonName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Name"
-        app:startIconDrawable="@drawable/ic_baseline_person_24"
-        app:boxStrokeColor="@color/colorPrimary"
-        app:boxStrokeWidth="2dp"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        app:layout_constraintBottom_toTopOf="@id/editTextTextPersonName2"
+        android:background="@drawable/bg_std"
+        app:layout_constraintBottom_toTopOf="@id/linear_nav"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_margin="@dimen/fab_margin">
+        tools:context=".complain">
 
-        <com.google.android.material.textfield.TextInputEditText
+        <TextView
+            android:id="@+id/textView3"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_height="wrap_content"
+            android:text="Please enter the following details..."
+            app:layout_constraintBottom_toTopOf="@id/editTextTextPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/editTextTextPersonName2"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/editTextTextPersonName"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Name"
+            app:boxStrokeColor="@color/colorPrimary"
+            app:boxStrokeWidth="2dp"
+            app:layout_constraintBottom_toTopOf="@id/editTextTextPersonName2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:startIconDrawable="@drawable/ic_baseline_person_24">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/editTextTextPersonName2"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="MOBILE"
+            android:inputType="textPersonName"
+            app:boxStrokeColor="@color/colorPrimary"
+            app:boxStrokeWidth="2dp"
+            app:layout_constraintBottom_toTopOf="@id/editTextTextPersonName3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName"
+            app:startIconDrawable="@drawable/ic_baseline_phone_24">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/editTextTextPersonName3"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="ADDRESS"
+            android:inputType="textPersonName"
+            app:boxStrokeColor="@color/colorPrimary"
+            app:boxStrokeWidth="2dp"
+            app:layout_constraintBottom_toTopOf="@id/maps"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2"
+            app:startIconDrawable="@drawable/ic_baseline_person_location_24">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/maps"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Know your Location"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+            app:icon="@drawable/ic_baseline_location_on_24"
+            app:layout_constraintBottom_toTopOf="@+id/pincode"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/pincode"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="PINCODE"
+            android:inputType="textPersonName"
+            app:boxStrokeColor="@color/colorPrimary"
+            app:boxStrokeWidth="2dp"
+            app:layout_constraintBottom_toTopOf="@+id/textView2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/maps"
+            app:startIconDrawable="@drawable/ic_baseline_pin_24">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/date"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="DD-MM-YYYY"
+            android:inputType="textPersonName"
+            app:boxStrokeColor="@color/colorPrimary"
+            app:boxStrokeWidth="2dp"
+            app:layout_constraintBottom_toTopOf="@+id/textView2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pincode"
+            app:startIconDrawable="@drawable/ic_baseline_today_24">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="61dp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Unresolved"
+            android:textAlignment="center"
+            android:textColor="#E91E63"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/cam"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/date" />
+
+        <Button
+            android:id="@+id/cam"
+            android:layout_width="275dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Upload Image"
+            app:layout_constraintBottom_toTopOf="@+id/button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textView2" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SUBMIT"
+            app:layout_constraintBottom_toBottomOf="@id/constraint"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cam" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:id="@+id/linear_nav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="MOBILE"
-        android:inputType="textPersonName"
-        app:startIconDrawable="@drawable/ic_baseline_phone_24"
-        app:boxStrokeColor="@color/colorPrimary"
-        app:boxStrokeWidth="2dp"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        app:layout_constraintBottom_toTopOf="@id/editTextTextPersonName3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName"
-        android:layout_margin="@dimen/fab_margin">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/editTextTextPersonName3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="ADDRESS"
-        android:inputType="textPersonName"
-        app:startIconDrawable="@drawable/ic_baseline_person_location_24"
-        app:boxStrokeColor="@color/colorPrimary"
-        app:boxStrokeWidth="2dp"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        app:layout_constraintBottom_toTopOf="@id/maps"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2"
-        android:layout_margin="@dimen/fab_margin">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <Button
-        android:id="@+id/maps"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Know your Location"
-        android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
-        app:icon="@drawable/ic_baseline_location_on_24"
-        android:padding="@dimen/fab_margin"
-        app:layout_constraintBottom_toTopOf="@+id/pincode"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/pincode"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="PINCODE"
-        android:inputType="textPersonName"
-        app:startIconDrawable="@drawable/ic_baseline_pin_24"
-        app:boxStrokeColor="@color/colorPrimary"
-        app:boxStrokeWidth="2dp"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        app:layout_constraintBottom_toTopOf="@+id/textView2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/maps"
-        android:layout_margin="@dimen/fab_margin">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/date"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:hint="DD-MM-YYYY"
-        app:startIconDrawable="@drawable/ic_baseline_today_24"
-        app:boxStrokeColor="@color/colorPrimary"
-        app:boxStrokeWidth="2dp"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        app:layout_constraintBottom_toTopOf="@+id/textView2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pincode"
-        android:layout_margin="@dimen/fab_margin">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-    </com.google.android.material.textfield.TextInputLayout>
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Unresolved"
-        android:textAlignment="center"
-        android:gravity="center"
-        android:textColor="#E91E63"
-        android:textSize="25dp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/cam"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/date"/>
-
-    <Button
-        android:id="@+id/cam"
-        android:layout_width="275dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="Upload Image"
-        app:layout_constraintBottom_toBottomOf="@+id/button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textView2" />
-
-    <Button
-
-        android:id="@+id/button"
-        android:layout_width="205dp"
-        android:layout_height="wrap_content"
-        android:text="SUBMIT"
+        android:gravity="bottom"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cam" />
+        app:layout_constraintStart_toStartOf="parent">
 
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_navigator"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            app:itemBackground="@color/colorPrimary"
+            app:itemIconTint="@drawable/selector"
+            app:itemTextColor="@drawable/selector"
+            app:menu="@menu/menu" />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -15,13 +15,12 @@ public class Full_image extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_full_image);
-
         url = getIntent().getStringExtra("image_url");
 
         myImage = findViewById(R.id.myImage);
         Glide.with(this).load(url)
-                .placeholder(R.drawable.ic_launcher_background)
-                .error(R.drawable.ic_launcher_background)
+                .placeholder(R.drawable.gops)
+                .error(R.drawable.card_bg_gradient)
                 .into(myImage);
     }
 }

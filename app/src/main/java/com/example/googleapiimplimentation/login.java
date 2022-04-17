@@ -25,7 +25,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class login extends AppCompatActivity {
     Button signout;
 
-    TextView name,email;
+    TextView name, email;
     Button complain;
     GoogleSignInClient mGoogleSignInClient;
     Button complaintList/*,button*/;
@@ -39,8 +39,6 @@ public class login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         name = findViewById(R.id.name);
         email = findViewById(R.id.email);
-        complaintList=findViewById(R.id.complaintList);
-        complain=(Button) findViewById(R.id.complain);
         //button=(Button)findViewById(R.id.button2);
 
        /* button.setOnClickListener(new View.OnClickListener() {
@@ -54,15 +52,13 @@ public class login extends AppCompatActivity {
         });*/
         bottomNavigationView = findViewById(R.id.bottom_navigator);
         bottomNavigationView.setSelectedItemId(R.id.home);
-
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId())
-                {
+                switch (item.getItemId()) {
                     case R.id.fullComplainList:
-                        startActivity(new Intent(getApplicationContext(),ComplaintList.class));
-                        overridePendingTransition(0,0);
+                        startActivity(new Intent(getApplicationContext(), ComplaintList.class));
+                        overridePendingTransition(0, 0);
                         return true;
                     case R.id.home:
                         return true;
@@ -71,24 +67,6 @@ public class login extends AppCompatActivity {
             }
         });
 
-        complain.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-
-                Intent intent = new Intent(login.this, complain.class);
-                startActivity(intent);
-
-            }
-        });
-
-        complaintList.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(login.this, ComplaintList.class);
-                startActivity(intent);
-            }
-        });
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
                 .build();
@@ -113,17 +91,15 @@ public class login extends AppCompatActivity {
         }
     }
 
-        private void signOut () {
-            mGoogleSignInClient.signOut()
-                    .addOnCompleteListener(this, new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-                            // ...
-                            Toast.makeText(login.this, "signout", Toast.LENGTH_SHORT).show();
-                            finish();
-                        }
-                    });
-
-
+    private void signOut() {
+        mGoogleSignInClient.signOut()
+                .addOnCompleteListener(this, new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        // ...
+                        Toast.makeText(login.this, "signout", Toast.LENGTH_SHORT).show();
+                        finish();
+                    }
+                });
     }
 }

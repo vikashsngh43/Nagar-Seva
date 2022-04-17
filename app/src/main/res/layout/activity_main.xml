@@ -1,38 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@drawable/gops"
-    tools:context=".MainActivity">
+    android:layout_height="match_parent">
 
-
-    <TextView
-        android:id="@+id/textView4"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="40dp"
-        android:textColor="#00EE28"
-        android:text="WELCOME TO NAGAR SEVA"
-        android:gravity="center"/>
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_std"
+        android:orientation="vertical"
+        tools:context=".MainActivity">
 
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:gravity="bottom"/>
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/bungee_shade"
+            android:text="WELCOME"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline2"
+            android:textColor="@color/colorPrimary" />
 
 
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:fontFamily="@font/bungee_shade"
+            android:gravity="bottom" />
 
-    <com.google.android.gms.common.SignInButton
-        android:id="@+id/sign_in_button"
-        android:layout_width="wrap_content"
-       android:layout_gravity="center"
-        android:layout_height="wrap_content" />
 
+        <com.google.android.gms.common.SignInButton
+            android:id="@+id/sign_in_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/wide_margin" />
+    </LinearLayout>
 
-
-</LinearLayout>
+</RelativeLayout>

@@ -53,16 +53,6 @@ public class ComplaintList extends AppCompatActivity {
         });
 
 
-        ac= (FloatingActionButton)findViewById(R.id.fab_add_complaint) ;
-
-        ac.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(ComplaintList.this, complain.class);
-                startActivity(intent);
-            }
-        });
-
         recyclerView = (RecyclerView)findViewById(R.id.recylerview);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
