@@ -131,6 +131,14 @@ public class login extends AppCompatActivity {
             GlobalVariable.username = personEmail;
 
         }
+        recyclerView = (RecyclerView) findViewById(R.id.recylerview1);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        FirebaseRecyclerOptions<MainModel> options =
+                new FirebaseRecyclerOptions.Builder<MainModel>()
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("user_complaint"), MainModel.class)
+                        .build();
+
+        mainAdapter = new MainAdapter(options);
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("user_complaint");
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -170,15 +178,6 @@ public class login extends AppCompatActivity {
 
     private void display()
     {
-        recyclerView = (RecyclerView) findViewById(R.id.recylerview1);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-        FirebaseRecyclerOptions<MainModel> options =
-                new FirebaseRecyclerOptions.Builder<MainModel>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("user_complaint"), MainModel.class)
-                        .build();
-
-        mainAdapter = new MainAdapter(options);
         recyclerView.setAdapter(mainAdapter);
     }
     @Override

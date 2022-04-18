@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DataSnapshot;
@@ -25,6 +26,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class For_Hotspot extends AppCompatActivity {
+
+    private  long pressedTime;
 
     TextView pin1,pin2,pin3;
     Button show1,show2,show3;
@@ -174,6 +177,23 @@ public class For_Hotspot extends AppCompatActivity {
         //System.out.println("pincode "+store[2]);
 
 
+
+    }
+    @Override
+    public void onBackPressed() {
+        if (pressedTime + 2000 > System.currentTimeMillis()) {
+
+            super.onBackPressed();
+
+            this.finishAffinity();
+
+        } else {
+
+            Toast.makeText(getBaseContext(), "Press back again to exit", Toast.LENGTH_SHORT).show();
+
+        }
+
+        pressedTime = System.currentTimeMillis();
 
     }
 }

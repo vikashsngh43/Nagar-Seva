@@ -21,10 +21,11 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class ComplaintList extends AppCompatActivity {
 
+    private long pressedTime;
 
     RecyclerView recyclerView;
     MainAdapter mainAdapter;
-    FloatingActionButton ac;
+   // FloatingActionButton ac;
     BottomNavigationView bottomNavigationView;
 
     @Override
@@ -63,15 +64,15 @@ public class ComplaintList extends AppCompatActivity {
         });
 
 
-        ac= (FloatingActionButton)findViewById(R.id.fab_add_complaint) ;
+        //ac= (FloatingActionButton)findViewById(R.id.fab_add_complaint) ;
 
-        ac.setOnClickListener(new View.OnClickListener() {
+       /* ac.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ComplaintList.this, complain.class);
                 startActivity(intent);
             }
-        });
+        });*/
 
         recyclerView = (RecyclerView)findViewById(R.id.recylerview);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -141,5 +142,22 @@ public class ComplaintList extends AppCompatActivity {
         mainAdapter = new MainAdapter(options);
         mainAdapter.startListening();
         recyclerView.setAdapter(mainAdapter);
+    }
+    @Override
+    public void onBackPressed() {
+        if (pressedTime + 2000 > System.currentTimeMillis()) {
+
+            super.onBackPressed();
+
+            this.finishAffinity();
+
+        } else {
+
+            Toast.makeText(getBaseContext(), "Press back again to exit", Toast.LENGTH_SHORT).show();
+
+        }
+
+        pressedTime = System.currentTimeMillis();
+
     }
 }

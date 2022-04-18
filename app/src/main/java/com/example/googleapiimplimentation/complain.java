@@ -23,6 +23,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class complain extends AppCompatActivity {
+
+    private long pressedTime;
      TextInputLayout employeeNameEdt, employeePhoneEdt, employeeAddressEdt,pin,dat;
      Button maps;
      Button sendDatabtn;
@@ -250,4 +252,22 @@ public class complain extends AppCompatActivity {
                     });
 
     }*/
+
+    @Override
+    public void onBackPressed() {
+        if (pressedTime + 2000 > System.currentTimeMillis()) {
+
+            super.onBackPressed();
+
+            this.finishAffinity();
+
+        } else {
+
+            Toast.makeText(getBaseContext(), "Press back again to exit", Toast.LENGTH_SHORT).show();
+
+        }
+
+        pressedTime = System.currentTimeMillis();
+
+    }
 }
