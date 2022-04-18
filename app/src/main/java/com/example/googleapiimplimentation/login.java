@@ -33,7 +33,7 @@ import com.google.firebase.database.ValueEventListener;
 public class login extends AppCompatActivity {
     Button signout;
 
-    TextView name,email;
+    TextView name, email;
     //Button complain;
     GoogleSignInClient mGoogleSignInClient;
     //Button complaintList/*,button*/;
@@ -49,7 +49,7 @@ public class login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         name = findViewById(R.id.name);
         email = findViewById(R.id.email);
-       // complaintList=findViewById(R.id.complaintList);
+        // complaintList=findViewById(R.id.complaintList);
         //complain=(Button) findViewById(R.id.complain);
         //button=(Button)findViewById(R.id.button2);
 
@@ -68,21 +68,20 @@ public class login extends AppCompatActivity {
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId())
-                {
+                switch (item.getItemId()) {
                     case R.id.fullComplainList:
-                        startActivity(new Intent(getApplicationContext(),ComplaintList.class));
-                        overridePendingTransition(0,0);
+                        startActivity(new Intent(getApplicationContext(), ComplaintList.class));
+                        overridePendingTransition(0, 0);
                         return true;
                     case R.id.home:
                         return true;
                     case R.id.add_complaint:
-                        startActivity(new Intent(getApplicationContext(),complain.class));
-                        overridePendingTransition(0,0);
+                        startActivity(new Intent(getApplicationContext(), complain.class));
+                        overridePendingTransition(0, 0);
                         return true;
                     case R.id.hotspot:
-                        startActivity(new Intent(getApplicationContext(),For_Hotspot.class));
-                        overridePendingTransition(0,0);
+                        startActivity(new Intent(getApplicationContext(), For_Hotspot.class));
+                        overridePendingTransition(0, 0);
                         return true;
                     case R.id.settings:
                         return true;
@@ -91,24 +90,6 @@ public class login extends AppCompatActivity {
             }
         });
 
-       /* complain.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-
-                Intent intent = new Intent(login.this, complain.class);
-                startActivity(intent);
-
-            }
-        });
-
-        complaintList.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(login.this, ComplaintList.class);
-                startActivity(intent);
-            }
-        });*/
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
                 .build();
@@ -135,14 +116,11 @@ public class login extends AppCompatActivity {
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for(DataSnapshot snapshot : dataSnapshot.getChildren()){
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     String ma = snapshot.child("username").getValue().toString();
-                    if(ma.equals(GlobalVariable.username))
-                    {
-
+                    if (ma.equals(GlobalVariable.username)) {
                         display();
-                    }
-                    else
+                    } else
                         continue;
                 }
             }
@@ -154,22 +132,20 @@ public class login extends AppCompatActivity {
         });
     }
 
-        private void signOut () {
-            mGoogleSignInClient.signOut()
-                    .addOnCompleteListener(this, new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-                            // ...
-                            Toast.makeText(login.this, "signout", Toast.LENGTH_SHORT).show();
-                            finish();
-                        }
-                    });
+    private void signOut() {
+        mGoogleSignInClient.signOut().addOnCompleteListener(this, new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                // ...
+                Toast.makeText(login.this, "signout", Toast.LENGTH_SHORT).show();
+                finish();
+            }
+        });
 
 
     }
 
-    private void display()
-    {
+    private void display() {
         recyclerView = (RecyclerView) findViewById(R.id.recylerview1);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -181,6 +157,7 @@ public class login extends AppCompatActivity {
         mainAdapter = new MainAdapter(options);
         recyclerView.setAdapter(mainAdapter);
     }
+
     @Override
     protected void onStart() {
         super.onStart();

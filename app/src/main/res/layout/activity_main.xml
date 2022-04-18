@@ -2,34 +2,48 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootView"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient"
+    android:layoutAnimation="@anim/fade_in_animation">
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="wrap_content"
+        android:layout_height="300dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/nagar_seva_logo_stripped" />
 
     <LinearLayout
+        android:id="@+id/afterAnimationView"
+        android:visibility="gone"
+        android:layout_below="@+id/logo"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/bg_std"
+        android:layout_height="wrap_content"
+        android:layoutAnimation="@anim/scale_up_animation"
         android:orientation="vertical"
         tools:context=".MainActivity">
 
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/welcome_textview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/bungee_shade"
+            android:layout_marginLeft="@dimen/wide_margin"
+            android:layout_marginTop="40dp"
+            android:fontFamily="@font/emblema_one"
             android:text="WELCOME"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline2"
-            android:textColor="@color/colorPrimary" />
-
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/desc_text"
             android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:fontFamily="@font/bungee_shade"
-            android:gravity="bottom" />
-
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/wide_margin"
+            android:layout_marginTop="@dimen/wide_margin"
+            android:text="Sign In to connect and clean your city..."
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"/>
 
         <com.google.android.gms.common.SignInButton
             android:id="@+id/sign_in_button"
@@ -37,6 +51,24 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_margin="@dimen/wide_margin" />
+
+        <TextView
+            android:id="@+id/alt_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="@dimen/wide_margin"
+            android:text="Or quickly report a messed up street corner..."
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"/>
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_margin="@dimen/wide_margin"
+            android:text="Create a New Complaint" />
+
     </LinearLayout>
 
 </RelativeLayout>

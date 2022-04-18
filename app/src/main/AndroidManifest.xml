@@ -12,7 +12,7 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme.NoActionBar">
         <activity
             android:name=".For_Hotspot"
             android:exported="false" />
@@ -24,7 +24,7 @@
             android:exported="false" />
 
         <activity
-            android:name=".complain">
+            android:name=".MainActivity">
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
             <category android:name="android.intent.category.LAUNCHER" />
@@ -33,7 +33,7 @@
         </activity>
         <activity android:name=".camera" />
         <activity android:name=".login" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".complain">
 
         </activity>
 

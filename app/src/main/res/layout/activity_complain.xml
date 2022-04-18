@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,17 +9,16 @@
         android:id="@+id/constraint"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_above="@id/linear_nav"
         android:background="@drawable/bg_std"
-        app:layout_constraintBottom_toTopOf="@id/linear_nav"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         tools:context=".complain">
 
         <TextView
             android:id="@+id/textView3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="@dimen/fab_margin"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
             android:text="Please enter the following details..."
             app:layout_constraintBottom_toTopOf="@id/editTextTextPersonName"
             app:layout_constraintEnd_toEndOf="parent"
@@ -31,6 +30,8 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+
+            android:layout_margin="@dimen/fab_margin"
             android:hint="Name"
             app:boxStrokeColor="@color/colorPrimary"
             app:boxStrokeWidth="2dp"
@@ -50,6 +51,7 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="@dimen/fab_margin"
             android:hint="MOBILE"
             android:inputType="textPersonName"
             app:boxStrokeColor="@color/colorPrimary"
@@ -70,6 +72,7 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="@dimen/fab_margin"
             android:hint="ADDRESS"
             android:inputType="textPersonName"
             app:boxStrokeColor="@color/colorPrimary"
@@ -89,6 +92,7 @@
             android:id="@+id/maps"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="@dimen/fab_margin"
             android:text="Know your Location"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
             app:icon="@drawable/ic_baseline_location_on_24"
@@ -102,6 +106,7 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="@dimen/fab_margin"
             android:hint="PINCODE"
             android:inputType="textPersonName"
             app:boxStrokeColor="@color/colorPrimary"
@@ -122,6 +127,7 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="@dimen/fab_margin"
             android:hint="DD-MM-YYYY"
             android:inputType="textPersonName"
             app:boxStrokeColor="@color/colorPrimary"
@@ -141,6 +147,7 @@
             android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="@dimen/fab_margin"
             android:gravity="center"
             android:text="Unresolved"
             android:textAlignment="center"
@@ -154,8 +161,9 @@
 
         <Button
             android:id="@+id/cam"
-            android:layout_width="275dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="@dimen/fab_margin"
             android:layout_weight="1"
             android:text="Upload Image"
             app:layout_constraintBottom_toTopOf="@+id/button"
@@ -167,6 +175,7 @@
             android:id="@+id/button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="@dimen/fab_margin"
             android:text="SUBMIT"
             app:layout_constraintBottom_toBottomOf="@id/constraint"
             app:layout_constraintEnd_toEndOf="parent"
@@ -180,9 +189,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="bottom"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        android:layout_alignParentBottom="true"       >
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottom_navigator"
@@ -194,4 +201,4 @@
             app:itemTextColor="@drawable/selector"
             app:menu="@menu/menu" />
     </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>
