@@ -28,7 +28,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 //
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -107,6 +106,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent signInIntent = mGoogleSignInClient.getSignInIntent();
                 startActivityForResult.launch(signInIntent);
+                overridePendingTransition(android.R.anim.cycle_interpolator, android.R.anim.cycle_interpolator);
             }
         });
     }
@@ -117,10 +117,10 @@ public class MainActivity extends AppCompatActivity {
         Animation scaleUp = AnimationUtils.loadAnimation(this, R.anim.scale_up);
 
         ViewPropertyAnimator viewPropertyAnimator = logoImg.animate();
-        viewPropertyAnimator.y(-100f);
-        viewPropertyAnimator.translationY(-200f);
-        viewPropertyAnimator.scaleX(0.5f);
-        viewPropertyAnimator.scaleY(0.5f);
+        viewPropertyAnimator.y(100f);
+        viewPropertyAnimator.translationY(200f);
+        viewPropertyAnimator.scaleX(0.6f);
+        viewPropertyAnimator.scaleY(0.6f);
         viewPropertyAnimator.setDuration(1000);
         viewPropertyAnimator.setListener(new Animator.AnimatorListener() {
             @Override
@@ -128,9 +128,6 @@ public class MainActivity extends AppCompatActivity {
             }
             @Override
             public void onAnimationEnd(Animator animation) {
-                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(250,100);
-                logoImg.setLayoutParams(layoutParams);
-                Log.d("Image Size", "Width: "+logoImg.getWidth()+"Length: "+logoImg.getHeight());
                 afterAnimationView.setVisibility(VISIBLE);
             }
             @Override
@@ -194,4 +191,5 @@ public class MainActivity extends AppCompatActivity {
             Log.d("message", e.toString());
         }
     }
+
 }
