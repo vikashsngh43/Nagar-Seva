@@ -1,7 +1,7 @@
 package com.example.googleapiimplimentation;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
+//import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
@@ -63,7 +63,7 @@ public class camera extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_camera);
 
-        ActionBar actionBar;
+        /*ActionBar actionBar;
 
         actionBar = getSupportActionBar();
 
@@ -73,7 +73,7 @@ public class camera extends AppCompatActivity {
 
                 Color.parseColor("#0F9D58"));
 
-        actionBar.setBackgroundDrawable(colorDrawable);
+        actionBar.setBackgroundDrawable(colorDrawable);*/
         btnSelect = findViewById(R.id.btnChoose);
 
         btnUpload = findViewById(R.id.btnUpload);

@@ -55,15 +55,15 @@ public class For_Hotspot extends AppCompatActivity {
                 {
                     case R.id.home:
                         startActivity(new Intent(getApplicationContext(),login.class));
-                        overridePendingTransition(0,0);
+                        overridePendingTransition(R.anim.scale_up, R.anim.scale_down);
                         return true;
                     case R.id.fullComplainList:
                         startActivity(new Intent(getApplicationContext(),ComplaintList.class));
-                        overridePendingTransition(0,0);
+                        overridePendingTransition(R.anim.scale_up, R.anim.scale_down);
                         return true;
                     case R.id.add_complaint:
                         startActivity(new Intent(getApplicationContext(),complain.class));
-                        overridePendingTransition(0,0);
+                        overridePendingTransition(R.anim.scale_up, R.anim.scale_down);
                         return true;
                     case R.id.hotspot:
                         return true;

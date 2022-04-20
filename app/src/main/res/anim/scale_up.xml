@@ -11,7 +11,7 @@
         android:toXScale="100%"
         android:toYScale="100%"
         android:pivotX="50%"
-        android:pivotY="50%" />
+        android:pivotY="0%" />
 
     <alpha android:fromAlpha="0"
         android:toAlpha="1"/>

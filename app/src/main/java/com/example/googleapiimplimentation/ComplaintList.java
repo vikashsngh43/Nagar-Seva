@@ -44,17 +44,17 @@ public class ComplaintList extends AppCompatActivity {
                 {
                     case R.id.home:
                         startActivity(new Intent(getApplicationContext(),login.class));
-                        overridePendingTransition(0,0);
+                        overridePendingTransition(R.anim.scale_up, R.anim.scale_down);
                         return true;
                     case R.id.fullComplainList:
                         return true;
                     case R.id.add_complaint:
                         startActivity(new Intent(getApplicationContext(),complain.class));
-                        overridePendingTransition(0,0);
+                        overridePendingTransition(R.anim.scale_up, R.anim.scale_down);
                         return true;
                     case R.id.hotspot:
                         startActivity(new Intent(getApplicationContext(),For_Hotspot.class));
-                        overridePendingTransition(0,0);
+                        overridePendingTransition(R.anim.scale_up, R.anim.scale_down);
                         return true;
                     case R.id.settings:
                         return true;

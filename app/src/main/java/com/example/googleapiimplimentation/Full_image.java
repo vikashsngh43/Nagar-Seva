@@ -20,8 +20,8 @@ public class Full_image extends AppCompatActivity {
 
         myImage = findViewById(R.id.myImage);
         Glide.with(this).load(url)
-                .placeholder(R.drawable.ic_launcher_background)
-                .error(R.drawable.ic_launcher_background)
+                .placeholder(R.drawable.gops1)
+                .error(R.drawable.translucent_background)
                 .into(myImage);
     }
 }

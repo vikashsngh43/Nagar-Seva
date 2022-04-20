@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
         rootView = findViewById(R.id.rootView);
         afterAnimationView = findViewById(R.id.afterAnimationView);
         Drawable bg = ResourcesCompat.getDrawable(getResources(), R.drawable.bg_std, null);
-        new CountDownTimer(5000, 1000) {
+        new CountDownTimer(1000, 1000) {
 
             @Override
             public void onTick(long millisUntilFinished) {
@@ -181,13 +181,13 @@ public class MainActivity extends AppCompatActivity {
                 String personId = acct.getId();
                 Uri personPhoto = acct.getPhotoUrl();
             }
-            startActivity(new Intent(MainActivity.this,login.class));
-            // Signed in successfully, show authenticated UI.
+            startActivity(new Intent(MainActivity.this,ComplaintList.class));
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);            // Signed in successfully, show authenticated UI.
 
         } catch (ApiException e) {
             // The ApiException status code indicates the detailed failure reason.
             // Please refer to the GoogleSignInStatusCodes class reference for more information.
-            Log.d("message",e.toString());
+            Log.d("login failed: ",e.toString());
         }
     }
 
